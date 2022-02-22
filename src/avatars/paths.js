@@ -1,0 +1,1 @@
+export const AVATAR_PATH = "/static/images/avatars/"
