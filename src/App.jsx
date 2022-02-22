@@ -1,4 +1,5 @@
 import DialogDisplay from './containers/DialogDisplay';
+import DialogInput from './containers/DialogInput';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -14,6 +15,7 @@ const App = () => {
 		<>
 			<GlobalStyle />
 			<DialogDisplay />;
+			<DialogInput />
 		</>
 	);
 };
