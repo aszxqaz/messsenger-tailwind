@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-	  height: ${window.innerHeight + 'px'};
+	  height: 100vh;
 	  overflow: hidden;
   }
   #root {
@@ -21,7 +21,7 @@ const App = () => {
 	return (
 		<>
 			<GlobalStyle />
-			<DialogDisplay />;
+			<DialogDisplay />
 		</>
 	);
 };
