@@ -8,6 +8,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  body {
+	  height: ${window.innerHeight + 'px'};
+	  overflow: hidden;
+  }
+  #root {
+	  height: 100%;
+  }
 `;
 
 const App = () => {
@@ -15,7 +22,6 @@ const App = () => {
 		<>
 			<GlobalStyle />
 			<DialogDisplay />;
-			<DialogInput />
 		</>
 	);
 };

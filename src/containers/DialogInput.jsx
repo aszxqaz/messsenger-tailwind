@@ -7,23 +7,32 @@ const Wrapper = tw.div`
 `;
 
 const Form = tw.form`
-    flex-1
+    flex-1 mx-3
 `;
 
 const Input = tw.input`
-    h-9 mx-3 px-3 rounded-xl border-none outline-none w-full
+    h-9 px-3 rounded-xl border-none outline-none w-full
 `;
 
-const Button = styled(tw.div`
-    w-7 h-7 mx-2
-`)`
-	& > svg {
+const Button = styled.div`
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-left: 0.5rem;
+    &:last-child {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+    & > svg {
         width: 100%;
 		height: 100%;
 		color: gray;
 		cursor: pointer;
+        transition: color 0.2s ease-in-out;
+        &:hover {
+            color: rgb(20, 20, 20);
+        }
 	}
-`;
+`
 
 export default function DialogInput() {
 	return (
