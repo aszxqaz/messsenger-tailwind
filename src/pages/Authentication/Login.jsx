@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 import { AUTH_ERRORS } from './authErrors';
 import { useFormik } from 'formik';
 
@@ -25,10 +25,10 @@ const Card = styled(tw.fieldset`
 `)`
 	background-color: rgba(255, 255, 255, 0.9);
 	box-shadow: inset 0 0px 50px 0 rgb(0 0 0 / 19%), inset 0 2px 15px 0 rgb(0 0 0 / 24%);
-`
+`;
 
 const Heading = styled.h1`
-    text-transform: uppercase;
+	text-transform: uppercase;
 	font-size: 2rem;
 	color: rgb(44, 62, 80);
 	margin-bottom: 1.2rem;
@@ -41,12 +41,13 @@ const SubHeading = styled.h2`
 `;
 
 const Input = tw.input`
-    p-4 border border-solid border-slate-300 rounded w-full text-stone-700 focus:bg-green-100
+    p-4 border border-solid rounded w-full text-stone-700 focus:bg-green-100
+	${(p) => (p.error ? 'border-rose-700 border-2' : 'border-slate-300')}
 `;
 
 const ErrorInput = tw.div`
-	text-xs text-rose-900 text-left mb-3
-`
+	text-xs text-rose-900 text-left mb-3 h-4
+`;
 
 const Button = tw.button`
     w-full bg-green-700 font-bol text-white rounded border-none outline-none cursor-pointer py-4
@@ -54,25 +55,32 @@ const Button = tw.button`
 
 const Error = tw.div`
     text-center h-12 flex justify-center items-center mb-3 text-rose-700
-`
+`;
 
 export default function LoginPage() {
-    const [error, setError] = useState(AUTH_ERRORS.BAD_REQUEST)
-    const formik = useFormik({
+	const [error, setError] = useState(null);
+	const formik = useFormik({
 		initialValues: {
 			email: '',
 			password: '',
-			cpassword: ''
+			cpassword: '',
 		},
-		onSubmit: values => console.log(values),
-		validate: values => {
-			const errors = {}
-			if (!values.name) {
-				errors.name = 'Required'
+		onSubmit: (values) => console.log(values),
+		validate: (values) => {
+			const errors = {};
+			if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+				errors.email = 'Неправильный адрес электронной почты';
 			}
-			return errors
-		}
-	})
+			for (let key in values) {
+				if (!values[key]) {
+					errors[key] = 'Поле обязательно';
+				}
+			}
+			return errors;
+		},
+	});
+
+	console.log(formik);
 
 	return (
 		<>
@@ -83,6 +91,7 @@ export default function LoginPage() {
 						<Heading>Регистрация</Heading>
 						<SubHeading>Шаг 1</SubHeading>
 						<Input
+							error={formik.errors.email}
 							autoComplete="off"
 							type="text"
 							name="email"
@@ -90,7 +99,9 @@ export default function LoginPage() {
 							onChange={formik.handleChange}
 							placeholder="Электронная почта"
 						/>
-						<ErrorInput><p>Поле обязательно</p></ErrorInput>
+						<ErrorInput>
+							<p>{formik.errors.email}</p>
+						</ErrorInput>
 						<Input
 							autoComplete="off"
 							type="password"
@@ -99,7 +110,9 @@ export default function LoginPage() {
 							onChange={formik.handleChange}
 							placeholder="Пароль"
 						/>
-						<ErrorInput><p>Поле обязательно</p></ErrorInput>
+						<ErrorInput>
+							<p>{formik.errors.password}</p>
+						</ErrorInput>
 						<Input
 							autoComplete="off"
 							type="password"
@@ -108,8 +121,12 @@ export default function LoginPage() {
 							onChange={formik.handleChange}
 							placeholder="Подтвердите пароль"
 						/>
-						<ErrorInput><p>Поле обязательно</p></ErrorInput>
-                        <Error><p>{error}</p></Error>
+						<ErrorInput>
+							<p>{formik.errors.cpassword}</p>
+						</ErrorInput>
+						<Error>
+							<p>{error}</p>
+						</Error>
 						<Button type="submit">Далее</Button>
 					</Card>
 				</Form>
