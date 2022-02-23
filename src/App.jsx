@@ -3,6 +3,7 @@ import DialogInput from './containers/DialogInput';
 import { createGlobalStyle } from 'styled-components';
 import SidebarDisplay from './containers/SidebarDisplay';
 import { sidebarItems } from './data/sidebarItems';
+import LoginPage from './pages/Login';
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -24,7 +25,8 @@ const App = () => {
 		<>
 			<GlobalStyle />
 			{/* <DialogDisplay /> */}
-			<SidebarDisplay dialogsList={sidebarItems} />
+			{/* <SidebarDisplay dialogsList={sidebarItems} /> */}
+			<LoginPage />
 		</>
 	);
 };
