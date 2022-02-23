@@ -29,7 +29,7 @@ const Heading = styled.h1`
 `;
 
 const Input = tw.input`
-    p-4 border border-solid border-slate-300 rounded mb-3 w-full text-stone-700
+    p-4 border border-solid border-slate-300 rounded mb-3 w-full text-stone-700 focus:bg-green-100
 `;
 
 const Button = tw.button`
