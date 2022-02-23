@@ -1,9 +1,11 @@
 import tw from 'tailwind-styled-components';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed:regular);
     body {
+        font-family: 'Ubuntu Condensed', sans-serif;
         background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));;
     }
 `;
@@ -20,10 +22,10 @@ const Card = tw.fieldset`
 `;
 
 const Heading = styled.h1`
-	text-transform: uppercase;
-    font-size: 1.25rem;
+    text-transform: uppercase;
+	font-size: 2rem;
 	color: rgb(44, 62, 80);
-    margin-bottom: 2rem;
+	margin-bottom: 2rem;
 `;
 
 const Input = tw.input`
@@ -31,8 +33,8 @@ const Input = tw.input`
 `;
 
 const Button = tw.button`
-    w-full bg-green-700 font-bol text-white rounded border-none outline-none cursor-pointer py-4
-`
+    w-full bg-green-700 font-bol text-white rounded border-none outline-none cursor-pointer py-4 mt-8
+`;
 
 export default function LoginPage() {
 	return (
@@ -41,7 +43,7 @@ export default function LoginPage() {
 			<Wrapper>
 				<Form>
 					<Card>
-						<Heading>Create your account</Heading>
+						<Heading>Регистрация</Heading>
 						<Input
 							autocomplete="off"
 							type="text"
@@ -60,7 +62,7 @@ export default function LoginPage() {
 							name="cpass"
 							placeholder="Подтвердите пароль"
 						/>
-                        <Button>Зарегистрироваться</Button>
+						<Button>Далее</Button>
 					</Card>
 				</Form>
 			</Wrapper>
