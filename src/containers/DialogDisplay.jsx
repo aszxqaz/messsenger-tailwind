@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components';
 import { dialogMessages } from '../data/dialogMessages';
-import { ChatMessage } from './ChatMessage';
+import { ChatMessage } from '../components/ChatMessage';
 import DialogHeader from './DialogHeader';
 import DialogInput from './DialogInput';
 

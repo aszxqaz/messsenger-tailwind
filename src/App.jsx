@@ -1,6 +1,8 @@
 import DialogDisplay from './containers/DialogDisplay';
 import DialogInput from './containers/DialogInput';
 import { createGlobalStyle } from 'styled-components';
+import SidebarDisplay from './containers/SidebarDisplay';
+import { sidebarItems } from './data/sidebarItems';
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -21,7 +23,8 @@ const App = () => {
 	return (
 		<>
 			<GlobalStyle />
-			<DialogDisplay />
+			{/* <DialogDisplay /> */}
+			<SidebarDisplay dialogsList={sidebarItems} />
 		</>
 	);
 };
