@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed:regular);
     body {
         font-family: 'Ubuntu Condensed', sans-serif;
-        background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));;
+        background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(90, 9, 182, 0.6));;
     }
 `;
 
@@ -20,9 +20,12 @@ const Form = tw.form`
     text-center relative w-[calc(93%)]
 `;
 
-const Card = tw.fieldset`
-    bg-white shadow-inner rounded py-5 px-8 my-0 
-`;
+const Card = styled(tw.fieldset`
+    shadow-inner rounded py-5 px-8 my-0 
+`)`
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: inset 0 0px 50px 0 rgb(0 0 0 / 19%), inset 0 2px 15px 0 rgb(0 0 0 / 24%);
+`
 
 const Heading = styled.h1`
     text-transform: uppercase;
