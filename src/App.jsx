@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-	  height: 100vh;
+	  height: ${window.innerHeight + 'px'};
 	  overflow: hidden;
   }
   #root {
