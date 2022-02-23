@@ -11,14 +11,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Wrapper = tw.div`
-    flex items-center justify-center bg-transparent 
+    flex items-center justify-center bg-transparent h-full
 `;
 const Form = tw.form`
-    w-100 my-12 mx-auto text-center relative
+    my-auto mx-auto text-center relative
 `;
 
 const Card = tw.fieldset`
-    bg-white shadow-inner rounded py-5 px-8 w-4/5 my-0 mx-[calc(10%)]
+    bg-white shadow-inner rounded py-5 px-8 my-0 mx-[calc(5%)]
 `;
 
 const Heading = styled.h1`
