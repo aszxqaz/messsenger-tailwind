@@ -17,7 +17,7 @@ const Wrapper = tw.div`
     flex items-center justify-center bg-transparent h-full 
 `;
 const Form = tw.form`
-    my-auto mx-auto text-center relative w-4/5
+    text-center relative w-[calc(93%)]
 `;
 
 const Card = tw.fieldset`
